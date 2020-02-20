@@ -2,3 +2,4 @@
 istio.yaml
 istio-1.*
 gke*
+.DS_Store
