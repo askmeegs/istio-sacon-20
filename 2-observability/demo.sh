@@ -2,10 +2,10 @@
 
 declare -A commands
 commands=(
-            ["Getting nodes"]="kubectl get nodes"
-            ["Getting secrets"]="kubectl get secrets"
-            ["Getting pods"]="kubectl get pods"
-            ["Getting deployments"]="kubectl get deployments"
+            ["Monitoring dashboard"]="istioctl dashboard prometheus &"
+            ["Service graph dashboard"]="istioctl dashboard kiali &"
+            ["Metrics dashboard"]="istioctl dashboard grafana &"
+            ["Tracing dashboard"]="istioctl dashboard jaeger &"
    )
 
 source ./common/demo-scaffold.sh
