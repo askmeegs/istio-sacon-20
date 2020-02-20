@@ -23,5 +23,5 @@ color=${colors[$3]}
 printf "${color}${words}...${NO_COLOR}" | pv -qL $FAST
 read -p ''
 echo -e "${color}$ ${cmd}${NO_COLOR}" | pv -qL $FAST;
-${cmd}
+eval "$cmd"
 read -p ''

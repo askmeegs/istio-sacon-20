@@ -32,4 +32,4 @@ helm template ${WORKDIR}/istio-${ISTIO_VERSION}/install/kubernetes/helm/istio --
 # install istio
 kubectl apply -f istio.yaml
 kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/istio-manifests.yaml
-kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/kubernetes-manifests.yaml
+kubectl apply -f k8s-manifests.yaml

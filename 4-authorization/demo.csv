@@ -1,0 +1,7 @@
+Words,Command
+Lock down the currency service - no access,cat ./4-authorization/currency-deny-all.yaml
+Apply the policy,kubectl apply -f  ./4-authorization/currency-deny-all.yaml
+Allow the frontend to access currencyservice,cat ./4-authorization/currency-allow-frontend.yaml
+Apply the policy,kubectl apply -f ./4-authorization/currency-allow-frontend.yaml
+Allow the frontend and checkoutservice to access currencyservice,cat ./4-authorization/currency-allow-frontend-checkout.yaml
+Apply the policy ,kubectl apply -f ./4-authorization/currency-allow-frontend-checkout.yaml
