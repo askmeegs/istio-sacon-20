@@ -1,0 +1,7 @@
+Words,Command
+Reset - send all traffic to v1 again,kubectl apply -f ./7-ab-testing/vs-reset.yaml
+Route based on user request headers,cat ./7-ab-testing/route-header.yaml
+Apply policy,kubectl apply -f ./7-ab-testing/route-header.yaml
+Get ingressgateway IP ,"GWIP=$(kubectl -n istio-system get svc istio-ingressgateway -o jsonpath=""{.status.loadBalancer.ingress[0].ip}"")"
+curl frontend with header --> v2 ,"curl -H ""ab-selected"":""true"" $GWIP/version"
+curl frontend without header --> v1,curl $GWIP/version

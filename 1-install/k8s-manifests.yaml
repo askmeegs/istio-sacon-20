@@ -145,6 +145,7 @@ spec:
     metadata:
       labels:
         app: recommendationservice
+        version: v1
     spec:
       serviceAccountName: recommendationservice-sa
       terminationGracePeriodSeconds: 5

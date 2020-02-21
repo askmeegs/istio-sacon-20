@@ -1,0 +1,6 @@
+Words,Command
+Get loadgen pod,FORTIO_POD=$(kubectl get pod | grep fortio | awk '{ print $1 }')
+Show normal frontend behavior,kubectl exec -it $FORTIO_POD -c fortio /usr/bin/fortio -- load -grpc -c 100 -n 100 -qps 0 recommendationservice:8080
+Show delay fault policy,cat ./9-fault-injection/vs.yaml
+Apply virtualservice,kubectl apply -f ./9-fault-injection/vs.yaml
+Send traffic again - observe 5-second delay,kubectl exec -it $FORTIO_POD -c fortio /usr/bin/fortio -- load -grpc -c 100 -n 100 -qps 0 recommendationservice:8080

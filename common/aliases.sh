@@ -12,5 +12,5 @@ alias execrespy="RESPY_POD=$(kubectl get pod | grep respy | awk '{ print $1 }');
 alias runrespy="watch -n 1 ./respy --u http://frontend:80/version --c 10 --n 500"
 alias abtest="python ./common/run_all.py ./7-ab-testing/demo.csv"
 
-alias clientlb="python ./common/run_all.py ./8-client-side-lb/demo.csv"
-alias circuit="python ./common/run_all.py ./9-circuit-breaking/demo.csv"
+alias circuit="python ./common/run_all.py ./8-circuit-breaking/demo.csv"
+alias faultinject="python ./common/run_all.py ./9-fault-injection/demo.csv"

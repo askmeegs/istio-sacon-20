@@ -24,4 +24,5 @@ printf "${color}${words}...${NO_COLOR}" | pv -qL $FAST
 read -p ''
 echo -e "${color}$ ${cmd}${NO_COLOR}" | pv -qL $FAST;
 eval "$cmd"
+echo ""
 read -p ''
