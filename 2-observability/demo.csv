@@ -1,0 +1,4 @@
+Words,Command
+Open monitoring dashboard ,istioctl dashboard prometheus & 
+Open service graph dashboard,istioctl dashboard kiali & 
+Open metrics dashboard ,istioctl dashboard grafana & 

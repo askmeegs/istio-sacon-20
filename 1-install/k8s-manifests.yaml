@@ -201,13 +201,14 @@ spec:
     metadata:
       labels:
         app: frontend
+        version: v1
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
       serviceAccountName: frontend-sa
       containers:
         - name: server
-          image: gcr.io/onlineboutique/frontend:v0.1.4
+          image: gcr.io/onlineboutique/frontend:v0.1.4-with-version
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -243,6 +244,8 @@ spec:
             value: "checkoutservice:5050"
           - name: AD_SERVICE_ADDR
             value: "adservice:9555"
+          - name: VERSION
+            value: "v1"
           # - name: JAEGER_SERVICE_ADDR
           #   value: "jaeger-collector:14268"
           resources:

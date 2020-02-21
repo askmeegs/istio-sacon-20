@@ -1,0 +1,4 @@
+Words,Command
+Deploy the coolcash service,kubectl apply -f ./5-redirect/coolcash.yaml
+Let's deploy this redirect VirtualService,cat ./5-redirect/virtualservice.yaml
+Apply traffic policy,kubectl apply -f ./5-redirect/virtualservice.yaml

@@ -1,0 +1,11 @@
+Words,Command
+Deploy frontend v2,kubectl apply -f ./6-canary/frontend-v2.yaml
+Split frontend Service into 2 subsets,cat ./6-canary/dr-baseline.yaml
+Deploy destinationrule,kubectl apply -f ./6-canary/dr-baseline.yaml
+"Send all traffic to v1, to start",cat ./6-canary/vs-baseline.yaml
+Apply the traffic rule,kubectl apply -f ./6-canary/vs-baseline.yaml
+Deploy respy pod,kubectl apply -f ./6-canary/respy.yaml
+Exec into respy pod,echo
+Send 50 percent of traffic to v2,kubectl apply -f ./6-canary/vs50.yaml
+Send 80 percent of traffic to v2,kubectl apply -f ./6-canary/vs80.yaml
+Send 100 percent of traffic to v2,kubectl apply -f ./6-canary/vs100.yaml

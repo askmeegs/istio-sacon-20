@@ -1,0 +1,6 @@
+Words,Command
+Get Istio pods,kubectl get pods -n istio-system
+Onlineboutique pods ,kubectl get pods
+Onlineboutique services,kubectl get services
+How is the frontend exposed to the internet?,kubectl get virtualservice frontend -o yaml; kubectl get gateway frontend-gateway -o yaml
+Let's access the frontend,kubectl get services -n istio-system | grep istio-ingressgateway

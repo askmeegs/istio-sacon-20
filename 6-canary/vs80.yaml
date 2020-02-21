@@ -10,8 +10,8 @@ spec:
     - destination:
         host: frontend
         subset: v1
-      weight: 50
+      weight: 20
     - destination:
         host: frontend
         subset: v2
-      weight: 50
+      weight: 80
