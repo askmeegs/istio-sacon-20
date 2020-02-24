@@ -27,11 +27,11 @@ helm template ${WORKDIR}/istio-${ISTIO_VERSION}/install/kubernetes/helm/istio --
 --set "kiali.dashboard.grafanaURL=http://grafana:3000" \
 --set grafana.enabled=true \
 --set mixer.policy.enabled=false \
---set global.proxy.accessLogFile="/dev/stdout" >> istio.yaml
+--set global.proxy.accessLogFile="/dev/stdout" >> ./1-install/istio.yaml
 
 # install istio
-kubectl apply -f istio.yaml
-kubectl apply -f service-accounts.yaml
+kubectl apply -f ./1-install/istio.yaml
+kubectl apply -f ./1-install/service-accounts.yaml
 sleep 5
-kubectl apply -f istio-manifests.yaml
-kubectl apply -f k8s-manifests.yaml
+kubectl apply -f ./1-install/istio-manifests.yaml
+kubectl apply -f ./1-install/k8s-manifests.yaml

@@ -1,9 +1,8 @@
 Words,Command
 Deploy loadgen pod,kubectl apply -f ./8-circuit-breaking/fortio.yaml
-Show circuit breaker rule,cat ./8-circuit-breaking/shipping-destrule.yaml
-Apply rule,kubectl apply -f ./8-circuit-breaking/shipping-destrule.yaml
-Get loadgen pod,FORTIO_POD=$(kubectl get pod | grep fortio | awk '{ print $1 }')
-"Send 1000 requests, 1 concurrent connection","kubectl exec -it $FORTIO_POD -c fortio /usr/bin/fortio -- load -grpc -c 1 -n 1000 -qps 0 shippingservice.default.svc.cluster.local:50051"
-"Trip the circuit breaker - same total requests, 2 connections","kubectl exec -it $FORTIO_POD -c fortio /usr/bin/fortio -- load -grpc -c 2 -n 1000 -qps 0 shippingservice.default.svc.cluster.local:50051"
+Show circuit breaker DestinationRule,cat ./8-circuit-breaking/shipping-destrule.yaml
+Apply DestinationRule,kubectl apply -f ./8-circuit-breaking/shipping-destrule.yaml
+Send 1000 requests with 1 concurrent connection,"FORTIO_POD=$(kubectl get pod | grep fortio | awk '{ print $1 }'); kubectl exec -it $FORTIO_POD -c fortio /usr/bin/fortio -- load -grpc -c 1 -n 1000 -qps 0 shippingservice.default.svc.cluster.local:50051"
+Trip the circuit breaker with 2 concurrent connections,"FORTIO_POD=$(kubectl get pod | grep fortio | awk '{ print $1 }'); kubectl exec -it $FORTIO_POD -c fortio /usr/bin/fortio -- load -grpc -c 2 -n 1000 -qps 0 shippingservice.default.svc.cluster.local:50051"
 
 

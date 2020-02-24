@@ -1,7 +1,7 @@
 Words,Command
 Default MeshPolicy,kubectl get meshpolicy default -o yaml
 Proxy mTLS status, POD="$(kubectl get pod -l app=adservice -o jsonpath="{.items[0].metadata.name}")"; istioctl authn tls-check $POD | tail
-Let's apply this policy,cat ./3-mtls/mtls.yaml
-Applying mTLS=STRICT policy,kubectl apply -f ./3-mtls/mtls.yaml
+Enforce mTLS on the entire mesh,cat ./3-mtls/mtls.yaml
+Apply policy,kubectl apply -f ./3-mtls/mtls.yaml
 Default MeshPolicy,kubectl get meshpolicy -o yaml
 Default DestinationRule,kubectl get destinationrule -n istio-system default -o yaml
