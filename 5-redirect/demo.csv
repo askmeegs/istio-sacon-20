@@ -2,3 +2,4 @@ Words,Command
 Deploy the coolcash service,kubectl apply -f ./5-redirect/coolcash.yaml
 Deploy VirtualService to redirect from paymentservice,cat ./5-redirect/virtualservice.yaml
 Apply VirtualService,kubectl apply -f ./5-redirect/virtualservice.yaml
+Deprecate paymentservice by deleting from the cluster, kubectl delete deployment paymentservice

@@ -1,5 +1,7 @@
 #!/usr/local/bin/bash
 
+PROMPT='$ istio-demo '
+PROMPT='%F{blue}%1~%f %F{red}$ '
 alias tour="python ./common/run_all.py ./1-install/demo.csv"
 alias obs="python ./common/run_all.py ./2-observability/demo.csv"
 
